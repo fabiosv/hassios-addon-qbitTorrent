@@ -5,18 +5,38 @@ The Qbittorrent project aims to provide an open-source software alternative to Â
 
 Based on [linuxserver/docker-qbittorrent](https://github.com/linuxserver/docker-qbittorrent/tree/master)
 
-This can be integrated with sonarr/radarr/whisparr as a DownloadClient
+## defaults
+
+The following username and password can be changed in `Tools > Options > Web UI > Authentication`
+
+- username: `admin`
+- password: `6QqCkDReY`
+
+## Integrating as DownloadClient
+
+This can be integrated with sonarr/radarr/whisparr/lidarr/readarr addons as a DownloadClient.
 
 `Settings > Download Clients > Add Download Client > qBittorrent`
 
 Params:
+
 - Host: `local-qbittorrent`
 - Port: `8080`
 - username: `admin`
 - password: `6QqCkDReY`
 
----
+All `/downloads` folder is mapped to `/media/qBittorrent` home-assistant path. It might be required to create the Remote Path Mappings:
 
-## defaults
-- username: `admin`
-- password: `6QqCkDReY`
+|Host             |Remote Path        |Local Path         |
+|-----------------|-------------------|-------------------|
+|local-qbittorrent|/media/qBittorrent/|/media/qBittorrent/|
+|local-qbittorrent|/downloads/        |/media/qBittorrent/|
+
+## Suggested Stack
+
+You can use the following addons as:
+
+- Sonarr/Radarr/Lidarr: Download manager
+- Prowlarr: Torrent Indexer
+- qBittorrent: Torrent Client
+- Media Plex Server: downloaded Torrent file streamer (similar to Popcorn)
