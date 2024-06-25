@@ -2,12 +2,9 @@ name: "qbitTorrent Client"
 description: "The Qbittorrent⁠ project aims to provide an open-source software alternative to µTorrent."
 version: "4.6.5"
 slug: "qbittorrent"
-stage: experimental
+# stage: experimental
 url: https://hub.docker.com/r/linuxserver/qbittorrent
 init: false
-build_from: 
-  amd64: lscr.io/linuxserver/qbittorrent:amd64-4.6.5-libtorrentv1
-  aarch64: lscr.io/linuxserver/qbittorrent:arm64v8-4.6.5-libtorrentv1
 arch:
   - amd64
   - aarch64
@@ -25,8 +22,7 @@ ingress: true
 ingress_port: 8080
 usb: true
 map:
-  # - share:rw
+  - addon_config:rw
   - media:rw
-  - downloads:rw
-  # - addon_config:rw
+  # - downloads:rw
 # password: 6QqCkDReY

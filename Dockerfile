@@ -6,7 +6,7 @@ RUN echo "installed"
 
 USER root
 
-RUN mkdir -p /media/qBittorrent
+RUN mkdir /media/qBittorrent
 RUN chown 1000:1000 -R /media/qBittorrent
 # RUN mkdir -p /data
 # RUN ln -nsf /downloads /data/downloads
