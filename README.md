@@ -40,3 +40,4 @@ You can use the following addons as:
 - Prowlarr: Torrent Indexer
 - qBittorrent: Torrent Client
 - Media Plex Server: downloaded Torrent file streamer (similar to Popcorn)
+- [qBittorrent Integration](https://www.home-assistant.io/integrations/qbittorrent/): use this integration to create automations and monitoring your Torrent Client status.
