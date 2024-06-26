@@ -2,15 +2,12 @@
 # FROM $BUILD_FROM
 FROM lscr.io/linuxserver/qbittorrent:arm64v8-4.6.5-libtorrentv1
 
-RUN echo "installed"
-
 USER root
 
-RUN mkdir /media/qBittorrent
-RUN chown 1000:1000 -R /media/qBittorrent
-# RUN mkdir -p /data
-# RUN ln -nsf /downloads /data/downloads
-RUN ln -nsf /media/qBittorrent /downloads
-COPY ./qBittorrent.conf /config/qBittorrent/qBittorrent.conf
-COPY ./qBittorrent-data.conf /config/qBittorrent/qBittorrent-data.conf
-# RUN ln -nsf /downloads /config/qBittorrent/downloads
+COPY ./qBittorrent.conf /defaults/qBittorrent.conf
+COPY ./qBittorrent-data.conf /defaults/qBittorrent-data.conf
+
+RUN echo "**** updated default config ****"
+
+RUN mkdir /custom-cont-init.d
+COPY run.sh /custom-cont-init.d/run.sh
